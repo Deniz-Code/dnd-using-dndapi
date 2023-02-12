@@ -2,23 +2,39 @@ import { useState } from "react"
 import { inventoryData } from "../../data/data"
 import InventoryList from "../../components/InventoryList/InventoryList"
 
+const style = {
+  display: "flex",
+  alignItems: "flex-start",
+  justifyContent: "space-around",
+}
+
 const Shop = () => {
   //create state variable
-  const [inventory, setInventory] = useState(inventoryData)
+  const [shopInventory, setShopInventory] = useState(inventoryData)
 
-const handleAddItem=()=>{
-  const newItemOne={id:62555,name:"Magic Wand",cost:1,weight:2}
-  const newItemTwo={id:63444,name:"Book of Spells",cost:15,weight:5}
+  const [userInventory, setUserInventory] = useState([])
 
-  setInventory([newItemOne,newItemTwo,...inventory])
-}
+  const handleAddItem = (item) => {
+    setUserInventory([...userInventory, item])
+    setShopInventory(shopInventory.filter((el) => el.id !== item.id))
+  }
+  const handleRemoveItem = (item) => {
+setShopInventory([...shopInventory,item])
+setUserInventory(userInventory.filter(el=>el.id!==item.id))
+
+  }
 
   return (
     <main>
       <h1>Shop</h1>
-      <button onClick={handleAddItem}>Click Here</button>
-      {/* before was inventoryData , now its inventory(state)so it changes */}
-      <InventoryList inventory={inventory} />
+      <section style={style}>
+        <InventoryList
+          title="Shop Inventory"
+          inventory={shopInventory}
+          handleAddItem={handleAddItem}
+        />
+        <InventoryList title="User Inventory" inventory={userInventory} handleRemoveItem={handleRemoveItem} />
+      </section>
     </main>
   )
 }
