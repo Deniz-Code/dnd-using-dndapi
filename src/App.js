@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar/NavBar"
 import Shop from "./pages/Shop/Shop"
 import MonsterList from "./pages/MonsterList/MonsterList"
 import MonsterDetails from "./pages/MonsterDetails/MonsterDetails"
+import SpellSearch from "./pages/SpellSearch/SpellSearch"
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="shop" element={<Shop />} />
         <Route path="monster-list" element={<MonsterList />} />
         <Route path="/monster" element={<MonsterDetails/>} />
+        <Route path="/spell-search" element={<SpellSearch/>}/>
       </Routes>
     </>
   )
