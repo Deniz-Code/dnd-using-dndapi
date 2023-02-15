@@ -6,7 +6,7 @@ const NavBar = () => {
       <img
         src="/images/noxitulll.png"
         alt="logo"
-        style={{ width: "100px", height: "100px" }}
+        style={{ borderRadius: "50%", width: "100px", height: "100px" }}
         className="App-logo"
       />
       <Link to="/shop">Shop</Link>

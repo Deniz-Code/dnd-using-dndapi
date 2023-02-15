@@ -10,3 +10,9 @@ export async function getDetails(apiUrl){
   const res=await fetch(`${baseUrl}${apiUrl}`)
   return res.json()
 }
+
+
+export async function spellSearch(formData){
+  const res=await fetch(`${baseUrl}/api/spells/?name=${formData.query}`)
+  return res.json()
+}
