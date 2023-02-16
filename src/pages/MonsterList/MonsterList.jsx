@@ -22,7 +22,9 @@ const MonsterList = () => {
         <>
           {monsterList.map((monster) => (
             <div key={monster.index}>
-              <Link to="/monster" state={{monster}}>{monster.name}</Link>{" "}
+              <Link to="/monster" state={{ monster }}>
+                {monster.name}
+              </Link>
             </div>
           ))}
         </>
